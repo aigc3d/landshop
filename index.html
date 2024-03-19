@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="Landdraw">
+  <meta property="og:title" content="Landdraw"/>
+  <meta property="og:description" content="Landdraw: Clone, Understand, and Imagine the Land"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/images/frame1.png" />
+  <meta property="og:image:width" content="1808"/>
+  <meta property="og:image:height" content="1014"/>
+
+
+  <meta name="twitter:title" content="Landdraw">
+  <meta name="twitter:description" content="Landdraw: Clone, Understand, and Imagine the Land">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/frame1.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="NeRF-Editing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>LandDraw</title>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-896X09RJF3"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-896X09RJF3');
+  </script>
+  
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://github.com/aigc3d">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Work
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://aigc3d.github.io/richdreamer">
+            RichDreamer
+          </a>
+          <a class="navbar-item" href="https://aigc3d.github.io/motionshop">
+            Motionshop
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">LandShop</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://weihao-yuan.com/" target="_blank">Weihao Yuan</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  Zhe Sheng</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://hyshkust.github.io/" target="_blank">Yisheng He</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  Weichao Shen</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  Yang Gao</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  Kejie Qiu</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  Xiaodong Gu</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  Chao Xu</a><sup>2</sup>,</span>
+                <span class="author-block">
+                  Xiaodan Ye</a><sup>2</sup>,</span>
+                <span class="author-block">
+                  Junfei Zhang</a><sup>2</sup>,</span>
+                <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=GHOQKCwAAAAJ&hl=zh-CN&oi=ao" target="_blank">Zilong Dong</a></sup>,</span>
+                <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=FJwtMf0AAAAJ&hl=zh-CN" target="_blank">Liefeng Bo</a>
+              </span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Alibaba Group</span>
+              <span class="eql-cntrb"><small><br><sup>1</sup>AI Algorithm &nbsp;</small></span>
+              <span class="eql-cntrb"><small><sup>2</sup>TIDE Rendering</small></span>
+            </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+
+                    <!-- Arxiv link -->
+                    <!-- <span class="link-block">
+                      <a href="" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span> -->
+
+                    <!-- Video link -->
+                    <!-- <span class="link-block">
+                      <a href="https://www.youtube.com/watch?v=YBRGy4g1RGM" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                      </span>
+                      <span>Youtube</span>
+                    </a>
+                  </span> -->
+
+                  <!-- Github link -->
+                  <!-- <span class="link-block">
+                    <a href="" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (comming)<span>
+                  </a>
+                </span> -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser video-->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/yungu_path3_pm.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Some texts here.
+      </h2>
+    </div>
+  </div>
+</section> -->
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <img src="static/images/overview.png" alt="MY ALT TEXT"/>
+          <p>
+            LandShop is a Large-scale Neural Digital Twin System, which enables Photorealistic Reconstruction, LOD Textured Mesh Reconstruction, Neural Editing, and Neural Segmentation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Section 1 -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+      <h2 class="title is-3" align="center">1. Large-scale Photorealistic Reconstruction</h2>
+      <div class="content has-text-justified">
+        <p>
+          We build a large-scale photorealistic reconstruction system based on large-scale SfM and large-scale neural rendering technologies.
+        </p>
+        <img src="static/images/frame1.jpg" width="100%" height="100%" />
+      </div>
+  </div>
+</section>
+<!-- End Section 1 -->
+
+<!-- Section 1 video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/yungu_path3_pm.mp4"
+        type="video/mp4">
+      </video>
+      <!-- <h2 class="subtitle has-text-centered">
+        High-Fidelity and transferable NeRF editing with instructions.
+      </h2> -->
+    </div>
+    <div style="text-align: center;">
+      <iframe width="720" height="405" src="https://www.youtube.com/embed/Fsv-lNPZe24?si=zV4zLQQQN3mxRuxp" title="YouTube video player" frameborder="0" align="center" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+<!-- End Section 1 video -->
+
+
+
+
+
+<!-- Section 2 -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+      <h2 class="title is-3" align="center">2. Large-scale LOD Textured Mesh Reconstruction</h2>
+      <div class="content has-text-justified">
+        <p>
+          Although the neural rendering could reconstruct a photo-realistic 3D scene, it is hard to be embedded into the traditional industries, e.g., oblique photography.
+          These traditional industries have grown for several decades, and are already stable with the mesh as representation.
+          To link to them, we add the geometry constraint to the neural reconstruction, and then extract the neural fields to a traditional mesh. 
+          Afterwards, we develop the large-scale texture mapping and level-of-details (LOD) technologies, which together enable our framework to be embedded into the traditional rendering engine.
+          We also develop a rendering engine, named UniTIDE, for efficient large-scale rendering.
+        </p>
+        <img src="static/images/frame2.jpg" width="100%" height="100%" />
+      </div>
+  </div>
+</section>
+<!-- End Section 2 -->
+
+<!-- Section 2 video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/unitide_xizhan.mp4"
+        type="video/mp4">
+      </video>
+      <!-- <h2 class="subtitle has-text-centered">
+        High-Fidelity and transferable NeRF editing with instructions.
+      </h2> -->
+    </div>
+    <div style="text-align: center;">
+      <iframe width="720" height="405" src="https://www.youtube.com/embed/9KBZbkpc0eI?si=uEwtXgDrZ5S8SpzC" title="YouTube video player" frameborder="0" align="center" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+<!-- End Section 2 video -->
+
+<!-- Section 2 video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/unitide_yungu.mp4"
+        type="video/mp4">
+      </video>
+      <!-- <h2 class="subtitle has-text-centered">
+        High-Fidelity and transferable NeRF editing with instructions.
+      </h2> -->
+    </div>
+  </div>
+</section>
+<!-- End Section 2 video -->
+
+
+
+
+
+<!-- Section 3 -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+      <h2 class="title is-3" align="center">3. Large-scale Neural Editing</h2>
+      <div class="content has-text-justified">
+        <p>
+          Based on the reconstructed 3D scene, we edit this scene to different seasons, time, weather, and so on.
+        </p>
+        <img src="static/images/frame3.jpg" width="100%" height="100%" />
+      </div>
+  </div>
+</section>
+<!-- End Section 3 -->
+
+<!-- Section 3 video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/seasons.mp4"
+        type="video/mp4">
+      </video>
+      <!-- <h2 class="subtitle has-text-centered">
+        High-Fidelity and transferable NeRF editing with instructions.
+      </h2> -->
+    </div>
+    <div style="text-align: center;">
+      <iframe width="720" height="405" src="https://www.youtube.com/embed/jlot_-HktN8?si=KfHyNISUacGSIWxB" title="YouTube video player" frameborder="0" align="center" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+<!-- End Section 3 video -->
+
+<!-- Section 3 video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <p>
+        For more technical details and more editing effects, please refer to our paper: 
+        <br>
+        <a href="https://aigc3d.github.io/freditor" target="_blank">Freditor: High-Fidelity and Transferable NeRF Editing by Frequency Decomposition</a>
+      </p>
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/freditor.mp4"
+        type="video/mp4">
+      </video>
+      <!-- <h2 class="subtitle has-text-centered">
+        High-Fidelity and transferable NeRF editing with instructions.
+      </h2> -->
+    </div>
+  </div>
+</section>
+<!-- End Section 3 video -->
+
+
+
+
+<!-- Section 4 -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+      <h2 class="title is-3" align="center">4. Large-scale Neural Segmentation</h2>
+      <div class="content has-text-justified">
+        <p>
+          Based on the reconstructed 3D scene or an arbitrary mesh of a 3D scene, we segment this scene to different areas.
+        </p>
+        <img src="static/images/frame4.jpg" width="100%" height="100%" />
+      </div>
+  </div>
+</section>
+<!-- End Section 4 -->
+
+
+<!-- Section 4 video 1-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/segment1.mp4"
+        type="video/mp4">
+      </video>
+      <!-- <h2 class="subtitle has-text-centered">
+        High-Fidelity and transferable NeRF editing with instructions.
+      </h2> -->
+    </div>
+    <div style="text-align: center;">
+      <iframe width="720" height="405" src="https://www.youtube.com/embed/50bfATn9RP8?si=qcSvSuu_YBHjW7lP" title="YouTube video player" frameborder="0" align="center" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+<!-- End Section 4 video -->
+
+
+<!-- Section 4 video 2-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/segment2.mp4"
+        type="video/mp4">
+      </video>
+      <!-- <h2 class="subtitle has-text-centered">
+        High-Fidelity and transferable NeRF editing with instructions.
+      </h2> -->
+    </div>
+    <div style="text-align: center;">
+      <iframe width="720" height="405" src="https://www.youtube.com/embed/3y71TZYrtWQ?si=NKv_sU8KHrSwWkyd" title="YouTube video player" frameborder="0" align="center" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+<!-- End Section 4 video -->
+
+
+
+
+
+<!--BibTex citation -->
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+<pre><code>@article{
+}
+    </code></pre>
+  </div>
+</section> -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
